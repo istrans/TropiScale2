@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TropiScale — Plateforme SaaS de Pont-Bascule & Négoce Agricole</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-emerald-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm">
+          T
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900">Tropi<span class="text-emerald-600">Scale</span></span>
+          <span class="block text-[10px] font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded w-fit">Smart Weighbridge</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#acteurs" class="hover:text-emerald-600 transition">Acteurs & Couloirs</a>
+        <a href="#fonctionnalites" class="hover:text-emerald-600 transition">Fonctionnalités</a>
+        <a href="#tarifs" class="hover:text-emerald-600 transition">Tarifs & Abonnements</a>
+        <a href="#console" class="hover:text-emerald-600 transition">Console</a>
+        <a href="#contacts" class="hover:text-emerald-600 transition">Contacts</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#tarifs" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-sm transition">
+          Démarrer l'essai gratuit
+        </a>
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" aria-label="Menu" class="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 hover:bg-emerald-100 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER MENU -->
+  <div id="mobileDrawer" class="fixed inset-0 z-50 hidden">
+    <div id="drawerBackdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs"></div>
+    <aside class="relative ml-auto w-full max-w-sm h-full bg-[#EDF9F2] overflow-y-auto p-6 shadow-2xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-extrabold">T</div>
+            <div>
+              <span class="text-lg font-extrabold text-slate-900">Tropi<span class="text-emerald-600">Scale</span></span>
+              <span class="block text-[9px] font-bold uppercase text-white bg-sky-500 px-1.5 rounded w-fit">Smart Weighbridge</span>
+            </div>
+          </div>
+          <button id="closeDrawerBtn" class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="text-sm font-bold text-slate-800 mb-3">Télécharger l'application mobile</p>
+        <a href="#telecharger" class="inline-flex items-center gap-3 bg-black text-white px-4 py-2.5 rounded-xl shadow hover:bg-slate-900 transition mb-8">
+          <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/>
+          </svg>
+          <div class="text-left leading-tight">
+            <span class="block text-[9px] uppercase tracking-wider text-slate-300">Disponible sur</span>
+            <span class="text-base font-bold">Google Play</span>
+          </div>
+        </a>
+
+        <!-- Découverte -->
+        <div class="mb-7">
+          <h3 class="text-base font-bold text-slate-900 mb-3">Découverte</h3>
+          <ul class="space-y-2.5 text-slate-600 font-medium text-sm">
+            <li><a href="#acteurs" class="drawer-link hover:text-emerald-700">Acteurs & Couloirs</a></li>
+            <li><a href="#fonctionnalites" class="drawer-link hover:text-emerald-700">Fonctionnalités</a></li>
+            <li><a href="#console" class="drawer-link hover:text-emerald-700">Console</a></li>
+            <li><a href="#tarifs" class="drawer-link hover:text-emerald-700">Abonnements</a></li>
+          </ul>
+        </div>
+
+        <!-- Ressources -->
+        <div class="mb-7">
+          <h3 class="text-base font-bold text-slate-900 mb-3">Ressources</h3>
+          <ul class="space-y-2.5 text-slate-600 font-medium text-sm">
+            <li><a href="#apropos" class="drawer-link hover:text-emerald-700">À propos</a></li>
+            <li><a href="#faq" class="drawer-link hover:text-emerald-700">FAQ</a></li>
+            <li><a href="#aide" class="drawer-link hover:text-emerald-700">Centre d'aide</a></li>
+            <li><a href="#cgu" class="drawer-link hover:text-emerald-700">CGU</a></li>
+            <li><a href="#confidentialite" class="drawer-link hover:text-emerald-700">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts -->
+        <div>
+          <h3 class="text-base font-bold text-slate-900 mb-3">Contacts</h3>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/>
+                  <circle cx="12" cy="11" r="2"/>
+                </svg>
+              </span>
+              <span>Akodésséwa, Lomé, Togo</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="M3 7l9 6 9-6"/>
+                </svg>
+              </span>
+              <a href="mailto:contact@tropiscale.com" class="hover:text-emerald-700">contact@tropiscale.com</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </span>
+              <a href="tel:+22890000000" class="hover:text-emerald-700">+228 90 00 00 00</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- HERO SECTION SAAS AVEC IMAGE INTEGRÉE -->
+  <section class="bg-gradient-to-b from-[#EDF9F2] to-white py-14 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+            Plateforme SaaS Cloud • 14 jours d'essai gratuit
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Pilotez vos ponts-bascules, vos couloirs métiers et vos clients en temps réel.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-slate-600">
+            Une solution SaaS collaborative où chaque acteur gère son couloir et son portefeuille clients dédié : pesées certifiées, reçus QR, suivi des comptes clients et paiements Mobile Money.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+            <a href="#acteurs" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md transition text-center">
+              Explorer les couloirs & clients
+            </a>
+            <a href="#tarifs" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white border border-emerald-200 hover:bg-emerald-50 text-emerald-800 font-bold transition text-center">
+              Voir les abonnements
+            </a>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs font-semibold text-slate-500">
+            <span>✓ Gestion clients par couloir</span>
+            <span>✓ Multi-sites & Multi-agents</span>
+            <span>✓ FR • EN • HI</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="rounded-2xl overflow-hidden shadow-xl border border-emerald-100 bg-white">
+            <img
+              src="ff83aaa2.jpeg"
+              alt="Illustration héro TropiScale pour la page d'accueil"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION ACTEURS DU DOMAINE & GESTION DE LEURS COULOIRS + CLIENTS -->
+  <section id="acteurs" class="py-16 sm:py-20 bg-white border-t border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Écosystème, Couloirs & Portefeuille Clients</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+          Chaque couloir acteur intègre la gestion dédiée de ses clients
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base">
+          Dans chaque couloir métier, l'acteur pilote ses propres clients (fiches clients, historique des pesées/livraisons, soldes, reçus QR et règlements Mobile Money) tout en gardant la traçabilité de la chaîne agricole.
+        </p>
+      </div>
+
+      <!-- Onglets interactifs par couloir métier -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="actorTabs">
+        <button type="button" data-actor="all" class="actor-tab active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-xs transition">
+          Tous les couloirs (6)
+        </button>
+        <button type="button" data-actor="bascule" class="actor-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+          Couloir Pesée & Bascule
+        </button>
+        <button type="button" data-actor="collecte" class="actor-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+          Couloir Collecte & Coopératives
+        </button>
+        <button type="button" data-actor="negoce" class="actor-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+          Couloir Négoce & Export
+        </button>
+        <button type="button" data-actor="logistique" class="actor-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+          Couloir Transport & Transit
+        </button>
+      </div>
+
+      <!-- Grille des 6 Acteurs & Couloirs avec Gestion Clients -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="actorGrid">
+
+        <!-- Acteur 1 : Opérateurs de Ponts-Bascules -->
+        <div data-category="bascule" class="actor-card rounded-3xl p-6 border border-emerald-100 bg-[#EDF9F2]/60 hover:bg-[#EDF9F2] transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-sm shadow-xs">
+                PB
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white text-emerald-800 border border-emerald-200">
+                Couloir Pesée
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Opérateurs de Ponts-Bascules</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Contrôle des passages camions, calcul Brut / Tare / Net et gestion complète des clients déposants ou abonnés au pesage.
+            </p>
+            <div class="bg-white/80 rounded-2xl p-3.5 border border-emerald-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Fiches clients pesage & forfaits/soldes prépayés</li>
+                <li>• Historique des tickets QR & factures par client</li>
+                <li>• Encaissement direct Mixx by Yas & Moov Money</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+        <!-- Acteur 2 : Coopératives & Producteurs -->
+        <div data-category="collecte" class="actor-card rounded-3xl p-6 border border-slate-200 bg-white hover:border-emerald-300 shadow-xs transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-sm">
+                CP
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">
+                Couloir Collecte
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Coopératives & Groupements</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Suivi des apports par village, bordereaux certifiés et gestion des membres/clients producteurs et acheteurs partenaires.
+            </p>
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Annuaire des producteurs & clients acheteurs</li>
+                <li>• Suivi des tonnages livrés, avances & paiements</li>
+                <li>• Reçus originaux téléchargeables par client</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+        <!-- Acteur 3 : Acheteurs, Négociants & Exportateurs -->
+        <div data-category="negoce" class="actor-card rounded-3xl p-6 border border-slate-200 bg-white hover:border-emerald-300 shadow-xs transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-extrabold text-sm">
+                EX
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-sky-50 text-sky-700">
+                Couloir Négoce & Export
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Acheteurs & Exportateurs</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Consolidation des lots (soja, cajou, cacao, sésame, karité…) et pilotage des clients fournisseurs et acheteurs internationaux.
+            </p>
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-sky-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Portefeuille clients fournisseurs & donneurs d'ordre</li>
+                <li>• Contrats, volumes engagés & règlements par lot</li>
+                <li>• Facturation multilingue (FR / EN / HI) avec QR</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+        <!-- Acteur 4 : Transporteurs & Chauffeurs -->
+        <div data-category="logistique" class="actor-card rounded-3xl p-6 border border-slate-200 bg-white hover:border-emerald-300 shadow-xs transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-extrabold text-sm">
+                TR
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">
+                Couloir Transport
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Transporteurs & Flottes Camions</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Traçabilité des rotations entre zones de collecte, magasins et ports, avec gestion des clients chargeurs et facturation du fret.
+            </p>
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-amber-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Répertoire des clients expéditeurs & destinataires</li>
+                <li>• Suivi des trajets, tares & écarts de poids</li>
+                <li>• Récapitulatif des courses & créances clients</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+        <!-- Acteur 5 : Transitaires & Déclarants en Douane -->
+        <div data-category="logistique" class="actor-card rounded-3xl p-6 border border-slate-200 bg-white hover:border-emerald-300 shadow-xs transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-extrabold text-sm">
+                TD
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">
+                Couloir Transit & Port
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Transitaires & Entrepôts Portuaires</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Vérification des certificats de poids par QR Code, gestion des dossiers clients export et suivi des prestations de transit.
+            </p>
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-indigo-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Dossiers clients import/export & statuts de passage</li>
+                <li>• Vérification instantanée des reçus par scan QR</li>
+                <li>• Historique des tonnages traités par client</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+        <!-- Acteur 6 : Agents de Terrain & Contrôleurs -->
+        <div data-category="collecte" class="actor-card rounded-3xl p-6 border border-slate-200 bg-white hover:border-emerald-300 shadow-xs transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-extrabold text-sm">
+                AG
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-teal-50 text-teal-700">
+                Couloir Agents Terrain
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Agents Commerciaux & Pisteurs</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Portefeuille clients rattaché à chaque agent sur mobile, suivi des livraisons terrain et calcul transparent des commissions.
+            </p>
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 mb-5">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-teal-700 mb-2">Gestion Clients du Couloir</p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-700">
+                <li>• Base clients dédiée par agent avec contacts & zones</li>
+                <li>• Édition mobile des tickets & suivi des règlements</li>
+                <li>• Tableau de bord des volumes & commissions</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#console" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-900">
+            Gérer ce couloir & ses clients <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FONCTIONNALITES SAAS -->
+  <section id="fonctionnalites" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 border-t border-slate-100">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Fonctionnalités Clés</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Tout ce dont votre pont-bascule a besoin</h2>
+      <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Automatisez vos opérations de pesée et sécurisez chaque transaction financière sur le terrain.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50/70 hover:border-emerald-200 transition">
+        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-4">01</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Pesée & Photo Camion</h3>
+        <p class="text-sm text-slate-600">Enregistrement automatique du poids brut, tare et net avec prise de photo horodatée du véhicule lors de chaque passage.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50/70 hover:border-emerald-200 transition">
+        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-4">02</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Reçus QR & Facturation</h3>
+        <p class="text-sm text-slate-600">Génération immédiate de tickets et factures téléchargeables dotés d'un QR Code d'authenticité infalsifiable.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50/70 hover:border-emerald-200 transition">
+        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-4">03</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Paiement Mobile Money</h3>
+        <p class="text-sm text-slate-600">Règlement direct par QR Code via Mixx by Yas et Moov Money (Flooz) avec réconciliation automatique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION ABONNEMENTS / TARIFS SAAS -->
+  <section id="tarifs" class="py-16 sm:py-20 bg-slate-50 border-y border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Tarifs & Abonnements</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">Des formules flexibles adaptées à votre volume</h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base">
+          Commencez gratuitement pendant 14 jours. Changez de forfait ou annulez à tout moment sans engagement.
+        </p>
+
+        <!-- Toggle Mensuel / Annuel -->
+        <div class="mt-6 inline-flex items-center p-1.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <button id="monthlyBtn" type="button" class="px-4 py-2 rounded-xl text-sm font-bold bg-emerald-600 text-white transition">
+            Facturation Mensuelle
+          </button>
+          <button id="annualBtn" type="button" class="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
+            Facturation Annuelle
+            <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">-20%</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grille des 3 Offres SaaS -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Plan 1 : Starter -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-extrabold text-slate-900">Starter</h3>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">1 Pont-Bascule</span>
+            </div>
+            <p class="text-sm text-slate-500 mb-6">Idéal pour les petits centres de collecte et coopératives locales.</p>
+
+            <div class="mb-6">
+              <div class="flex items-baseline gap-1.5">
+                <span class="price-value text-3xl sm:text-4xl font-extrabold text-slate-900" data-monthly="25 000" data-annual="20 000">25 000</span>
+                <span class="text-sm font-bold text-slate-500">FCFA / mois</span>
+              </div>
+              <p class="billing-note text-xs text-slate-400 mt-1">Facturé mensuellement</p>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Jusqu'à <strong>300 pesées</strong> / mois</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>1 pont-bascule & gestion clients par couloir</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Reçus PDF originaux avec QR Code</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Répertoire clients & export CSV</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Support par e-mail</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#console" class="w-full py-3.5 px-5 rounded-xl border border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-bold text-sm text-center transition">
+            Choisir Starter
+          </a>
+        </div>
+
+        <!-- Plan 2 : Business Pro (Mis en avant) -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border-2 border-emerald-600 shadow-xl relative flex flex-col justify-between">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow">
+            Le plus populaire
+          </span>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-extrabold text-slate-900">Business Pro</h3>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">Multi-Couloirs</span>
+            </div>
+            <p class="text-sm text-slate-500 mb-6">Conçu pour les négociants et sociétés d'exportation en pleine croissance.</p>
+
+            <div class="mb-6">
+              <div class="flex items-baseline gap-1.5">
+                <span class="price-value text-3xl sm:text-4xl font-extrabold text-slate-900" data-monthly="65 000" data-annual="52 000">65 000</span>
+                <span class="text-sm font-bold text-slate-500">FCFA / mois</span>
+              </div>
+              <p class="billing-note text-xs text-slate-400 mt-1">Facturé mensuellement</p>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Pesées illimitées</strong></span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Jusqu'à <strong>3 ponts-bascules</strong> & tous les couloirs clients</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Capture photo automatique des camions</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Paiement QR <strong>Mixx by Yas & Moov Money</strong></span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Interface multilingue (FR / EN / HI)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Support prioritaire WhatsApp & téléphone</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#console" class="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm text-center shadow-md transition">
+            Essayer Business Pro gratuitement
+          </a>
+        </div>
+
+        <!-- Plan 3 : Enterprise -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-extrabold text-slate-900">Enterprise</h3>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sky-100 text-sky-800">Sur mesure</span>
+            </div>
+            <p class="text-sm text-slate-500 mb-6">Pour les groupes agro-industriels, ports secs et réseaux nationaux.</p>
+
+            <div class="mb-6">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-3xl sm:text-4xl font-extrabold text-slate-900">Sur devis</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Déploiement dédié & SLA garanti</p>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Ponts-bascules, couloirs & clients <strong>illimités</strong></span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Connexion directe aux indicateurs de pesée (RS232/TCP)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>API REST & intégration ERP / Comptabilité</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Reçus personnalisés à votre marque blanche</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Gestionnaire de compte dédié sur site</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#contacts" class="w-full py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm text-center transition">
+            Contacter l'équipe commerciale
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bandeau Réassurance Paiement -->
+      <div class="mt-10 text-center text-xs sm:text-sm text-slate-500 flex flex-wrap items-center justify-center gap-4">
+        <span>Moyens de paiement acceptés :</span>
+        <span class="px-3 py-1 rounded-lg bg-white border border-slate-200 font-semibold text-slate-700">Mixx by Yas</span>
+        <span class="px-3 py-1 rounded-lg bg-white border border-slate-200 font-semibold text-slate-700">Moov Money (Flooz)</span>
+        <span class="px-3 py-1 rounded-lg bg-white border border-slate-200 font-semibold text-slate-700">Carte Bancaire / Virement</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER AVEC TOUS LES LIBELLES DEMANDES -->
+  <footer id="contacts" class="bg-[#EDF9F2] border-t border-emerald-100 pt-14 pb-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        <!-- Bloc Marque & Téléchargement -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-extrabold text-xl">
+              T
+            </div>
+            <div>
+              <span class="text-2xl font-extrabold text-slate-900">Tropi<span class="text-emerald-600">Scale</span></span>
+              <span class="block text-[10px] font-bold uppercase tracking-wider text-white bg-sky-500 px-2 py-0.5 rounded w-fit">
+                Smart Weighbridge
+              </span>
+            </div>
+          </div>
+
+          <p class="text-base font-bold text-slate-800 mb-3">Télécharger l'application mobile</p>
+          <a href="#telecharger" class="inline-flex items-center gap-3 bg-black text-white px-4 py-2.5 rounded-xl shadow hover:bg-slate-900 transition">
+            <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/>
+            </svg>
+            <div class="text-left leading-tight">
+              <span class="block text-[9px] uppercase tracking-wider text-slate-300">Disponible sur</span>
+              <span class="text-base font-bold">Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Colonne 1 : Découverte -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Découverte</h3>
+          <ul class="space-y-3 text-slate-600 font-medium">
+            <li><a href="#acteurs" class="hover:text-emerald-700 transition">Acteurs & Couloirs</a></li>
+            <li><a href="#fonctionnalites" class="hover:text-emerald-700 transition">Fonctionnalités</a></li>
+            <li><a href="#console" class="hover:text-emerald-700 transition">Console</a></li>
+            <li><a href="#tarifs" class="hover:text-emerald-700 transition">Abonnements</a></li>
+          </ul>
+        </div>
+
+        <!-- Colonne 2 : Ressources -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Ressources</h3>
+          <ul class="space-y-3 text-slate-600 font-medium">
+            <li><a href="#apropos" class="hover:text-emerald-700 transition">À propos</a></li>
+            <li><a href="#faq" class="hover:text-emerald-700 transition">FAQ</a></li>
+            <li><a href="#aide" class="hover:text-emerald-700 transition">Centre d'aide</a></li>
+            <li><a href="#cgu" class="hover:text-emerald-700 transition">CGU</a></li>
+            <li><a href="#confidentialite" class="hover:text-emerald-700 transition">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+
+        <!-- Colonne 3 : Contacts -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Contacts</h3>
+          <ul class="space-y-3.5 text-slate-600 font-medium">
+            <li class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/>
+                  <circle cx="12" cy="11" r="2"/>
+                </svg>
+              </span>
+              <span>Akodésséwa, Lomé, Togo</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="M3 7l9 6 9-6"/>
+                </svg>
+              </span>
+              <a href="mailto:contact@tropiscale.com" class="hover:text-emerald-700 transition">contact@tropiscale.com</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </span>
+              <a href="tel:+22890000000" class="hover:text-emerald-700 transition">+228 90 00 00 00</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-emerald-200/70 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <p>© 2026 TropiScale — Tous droits réservés.</p>
+        <p>FR • EN • HI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gestion du menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function openDrawer() { mobileDrawer.classList.remove('hidden'); }
+    function closeDrawer() { mobileDrawer.classList.add('hidden'); }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+    drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+    // Filtrage des couloirs par acteur du domaine
+    const actorTabs = document.querySelectorAll('.actor-tab');
+    const actorCards = document.querySelectorAll('.actor-card');
+
+    actorTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.actor;
+
+        actorTabs.forEach(t => {
+          t.classList.remove('bg-emerald-600', 'text-white', 'shadow-xs');
+          t.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        tab.classList.add('bg-emerald-600', 'text-white', 'shadow-xs');
+        tab.classList.remove('bg-slate-100', 'text-slate-700');
+
+        actorCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Gestion du basculement Mensuel / Annuel (-20%)
+    const monthlyBtn = document.getElementById('monthlyBtn');
+    const annualBtn = document.getElementById('annualBtn');
+    const priceValues = document.querySelectorAll('.price-value');
+    const billingNotes = document.querySelectorAll('.billing-note');
+
+    monthlyBtn.addEventListener('click', () => {
+      monthlyBtn.classList.add('bg-emerald-600', 'text-white');
+      monthlyBtn.classList.remove('text-slate-600');
+      annualBtn.classList.remove('bg-emerald-600', 'text-white');
+      annualBtn.classList.add('text-slate-600');
+
+      priceValues.forEach(el => el.textContent = el.dataset.monthly);
+      billingNotes.forEach(el => el.textContent = 'Facturé mensuellement');
+    });
+
+    annualBtn.addEventListener('click', () => {
+      annualBtn.classList.add('bg-emerald-600', 'text-white');
+      annualBtn.classList.remove('text-slate-600');
+      monthlyBtn.classList.remove('bg-emerald-600', 'text-white');
+      monthlyBtn.classList.add('text-slate-600');
+
+      priceValues.forEach(el => el.textContent = el.dataset.annual);
+      billingNotes.forEach(el => el.textContent = 'Facturé annuellement (économisez 20%)');
+    });
+  </script>
+</body>
+</html>
